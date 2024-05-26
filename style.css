@@ -1,16 +1,19 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Arial', Times, serif;
     box-sizing: border-box;
 }
-.container{
+
+.container {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(135deg,#1b1537,#4e135c);
+    background: linear-gradient(135deg, #1b1537, #4e135c);
     padding: 10px;
+    font-size: 22px;
 }
-.todo-app{
+
+.todo-app {
     width: 100%;
     max-width: 540px;
     background: #fff;
@@ -18,17 +21,20 @@
     padding: 40px 30px 70px;
     border-radius: 20px;
 }
-.todo-app h2{
+
+.todo-app h2 {
     color: #002765;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
-.todo-app h2 img{
+
+.todo-app h2 img {
     width: 30px;
     margin-left: 10px;
 }
-.row{
+
+.row {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -37,14 +43,17 @@
     padding-left: 20px;
     margin-bottom: 25px;
 }
-input{
+
+input {
     flex: 1;
     border: none;
     outline: none;
     background: transparent;
     padding: 10px;
+    font-size: 20px;
 }
-button{
+
+button {
     border: none;
     outline: none;
     padding: 16px 50px;
@@ -54,30 +63,56 @@ button{
     cursor: pointer;
     border-radius: 40px;
 }
-ul li{
+
+ul {
     list-style: none;
+}
+
+ul li {
     font-size: 17px;
     padding: 12px 8px 12px 50px;
-    user-select: none; 
+    user-select: none;
     cursor: pointer;
     position: relative;
 }
-ul li::before{
+
+ul li::before {
     content: '';
-    position:absolute;
+    position: absolute;
     height: 28px;
     width: 28px;
     border-radius: 50%;
-    background-image: url(images/unchecked.png);
     background-size: cover;
     background-position: center;
-    top: 12px;
+    top: 50%; /* Adjust this value */
+    transform: translateY(-50%); /* Adjust this value */
     left: 8px;
 }
-ul li.checked{
+
+ul li.checked {
     color: #555;
-    text-decoration: line-through ;
+    text-decoration: line-through;
 }
-ul li.checked::before{
+
+ul li.checked::before {
     background-image: url(images/checked.png);
+}
+
+/* Add styles for unchecked state */
+ul li:not(.checked)::before {
+    background-image: url(images/unchecked.png);
+}
+ul li span{
+    position: absolute;
+    top: 5px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    line-height: 40px;
+    text-align: center;
+}
+ul li span:hover{
+    background: #edeef0;
+    border-radius: 50%;
 }
